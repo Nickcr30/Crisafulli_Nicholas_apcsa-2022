@@ -1,10 +1,10 @@
 //© A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Nicholas Crisafulli
+//Date - 01/18/2022
+//Class - APCSA Period 1
+//Lab  - Stars and Stripes
 
 import static java.lang.System.*;
 
@@ -18,21 +18,35 @@ public class StarsAndStripes
 
    public void printTwentyStars()
    {
+	   out.println("********************");
    }
 
    public void printTwentyDashes()
    {
+	   out.println("--------------------");
    }
 
    public void printTwoBlankLines()
    {
+	   out.println("                    ");
+	   out.println("                    ");
    }
    
    public void printASmallBox()
    {	
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyDashes();
+	   printTwentyStars();
+	   printTwentyDashes();
    }
  
    public void printABigBox()
    { 	
+	   printASmallBox();
+	   printASmallBox();
    }   
+   
 }
