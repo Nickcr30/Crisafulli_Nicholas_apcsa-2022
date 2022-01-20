@@ -1,13 +1,16 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  - 
+//Name - Nicholas Crisafulli
+//Date - 01/21/2022
+//Class - APCSA Period 1
+//Lab  - Trap Runner
 
 public class TrapRunner
 {
+	
 	public static void main( String[] args )
 	{
+		Trap Trap = new Trap();
+		
 		System.out.println( Trap.area( 3, 3, 3) );
 		System.out.println( Trap.area( 5, 6, 7) );
 		System.out.println( Trap.area( 7, 10, 6) );
@@ -15,6 +18,7 @@ public class TrapRunner
 		System.out.println( Trap.area( 6, 11, 4) );
 		System.out.println( Trap.area( 11, 8, 5) );
 	}
+
 }
 
 
