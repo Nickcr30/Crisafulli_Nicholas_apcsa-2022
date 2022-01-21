@@ -17,33 +17,41 @@ public class Distance
 
 	public Distance()
 	{
+		
 	}
 
 	public Distance(int x1, int y1, int x2, int y2)
 	{
+		
 	}
 
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
+		xOne = x1;
+		xTwo = x2;
+		yOne = y1;
+		yTwo = y2;
 	}
 
 	public void calcDistance()
 	{
+		distance = sqrt((xTwo-xOne)*(xTwo-xOne)+(yTwo-yOne)*(yTwo-yOne));
 	}
 	
 	public double getDistance()
 	{
-		return 0.0;
+		return distance;
 	}
 	
 	public void print()
 	{
+		
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
-		return "";
+		return "distance == " + String.format("%.3f", distance);
 	}
 }

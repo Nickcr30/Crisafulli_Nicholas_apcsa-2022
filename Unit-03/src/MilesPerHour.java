@@ -23,18 +23,25 @@ public class MilesPerHour
 
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
+		setNums(dist, hrs, mins);
 	}
 
 	public void setNums(int dist, int hrs, int mins)
 	{
+		distance = dist;
+		hours = hrs;
+		minutes = mins;
 	}
 
 	public void calcMPH()
 	{
+		double mintohour = (double) minutes/60;
+		mph = distance/(hours + mintohour);
 	}
 
 	public void print()
 	{
+		System.out.println("\n" + distance + " miles in " + hours + " hour and " + minutes + " minutes = " + String.format("%.0f", mph) + " MPH");
 	}
 	
 	//create a print or toString or both
