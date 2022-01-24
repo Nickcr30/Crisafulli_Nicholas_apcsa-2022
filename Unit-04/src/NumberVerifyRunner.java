@@ -13,10 +13,32 @@ public class NumberVerifyRunner
 {
 	public static void main ( String[] args )
 	{
-		//add in input
-		System.out.println("5 is odd :: " + NumberVerify.isOdd(5));
-		System.out.println("5 is even :: " + NumberVerify.isEven(5));
+		Scanner keyboard = new Scanner(System.in);
 		
-		//add in more test cases
+		System.out.print("Enter a whole number :: ");
+		int inp = keyboard.nextInt();
+		System.out.println(inp + " is odd :: " + NumberVerify.isOdd(inp));
+		System.out.println(inp + " is even :: " + NumberVerify.isEven(inp));
+		
+		System.out.print("\nEnter a whole number :: ");
+		inp = keyboard.nextInt();
+		System.out.println(inp + " is odd :: " + NumberVerify.isOdd(inp));
+		System.out.println(inp + " is even :: " + NumberVerify.isEven(inp));
+		
+		System.out.print("\nEnter a whole number :: ");
+		inp = keyboard.nextInt();
+		System.out.println(inp + " is odd :: " + NumberVerify.isOdd(inp));
+		System.out.println(inp + " is even :: " + NumberVerify.isEven(inp));
+		
+		System.out.print("\nEnter a whole number :: ");
+		inp = keyboard.nextInt();
+		System.out.println(inp + " is odd :: " + NumberVerify.isOdd(inp));
+		System.out.println(inp + " is even :: " + NumberVerify.isEven(inp));
+		
+		System.out.print("\nEnter a whole number :: ");
+		inp = keyboard.nextInt();
+		System.out.println(inp + " is odd :: " + NumberVerify.isOdd(inp));
+		System.out.println(inp + " is even :: " + NumberVerify.isEven(inp));
+		
 	}
 }
