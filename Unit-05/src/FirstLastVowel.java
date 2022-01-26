@@ -8,6 +8,9 @@ public class FirstLastVowel
 {
    public static String go( String a )
 	{
-		return "add code here";
+		if (a.substring(0).equals("a") == true ){
+			return "yes";
+		}
+		return "no";
 	}
 }
