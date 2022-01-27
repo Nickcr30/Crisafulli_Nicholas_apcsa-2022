@@ -8,9 +8,17 @@ public class FirstLastVowel
 {
    public static String go( String a )
 	{
-		if (a.substring(0).equals("a") == true ){
-			return "yes";
+	   String vowels = "aeiouAEIOU";
+	 
+	   for (int i = 0; i<10; i++) {
+			if (a.substring(0,1).equals(vowels.substring(i,i+1)) || a.substring(a.length()-1).equals(vowels.substring(i,i+1))) {
+				return "yes";
+			}
 		}
-		return "no";
+	   return "no";
 	}
 }
+	
+		
+ 
+
