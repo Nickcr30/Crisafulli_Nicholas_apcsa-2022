@@ -11,6 +11,33 @@ public class PerfectRunner
 		Perfect test = new Perfect();
 		test.Perfect(496);
 		out.print(test);;
+		
+		test.Perfect(45);
+		out.print(test);;
+		
+		test.Perfect(6);
+		out.print(test);;
+		
+		test.Perfect(14);
+		out.print(test);;
+		
+		test.Perfect(8128);
+		out.print(test);;
+		
+		test.Perfect(1245);
+		out.print(test);;
+		
+		test.Perfect(33);
+		out.print(test);;
+		
+		test.Perfect(28);
+		out.print(test);;
+		
+		test.Perfect(27);
+		out.print(test);;
+		
+		test.Perfect(33550336);
+		out.print(test);;
 																
 	}
 }

@@ -24,7 +24,7 @@ public class Perfect
 	public boolean isPerfect()
 	{
 		int sum = 0;
-		for (int i=0; i<number; i++) {
+		for (int i=1; i<number; i++) {
 			if (number % i == 0) {
 				sum = sum + i;
 			}
@@ -39,8 +39,8 @@ public class Perfect
 	
 	public String toString() {
 		if(isPerfect() == true) {
-			return number + " is perfect";
+			return number + " is perfect\n\n";
 		}
-		return number + " is not perfect.";
+		return number + " is not perfect.\n\n";
 	}
 }
