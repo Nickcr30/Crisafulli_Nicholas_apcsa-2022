@@ -11,10 +11,14 @@ public class LetterRemover
 
 	public LetterRemover()
 	{
-		//call set
+		sentence = "";
+		lookFor = ' ';
 	}
 
 	//add in second constructor
+	public void LetterRemover (String s, char rem) {
+		setRemover(s, rem);
+	}
 	
 	
 	public void setRemover(String s, char rem)
@@ -25,12 +29,14 @@ public class LetterRemover
 
 	public String removeLetters()
 	{
-		String cleaned=sentence;
+		String letter = "" + lookFor + "";
+		String cleaned = sentence.replace(letter, "");
+		
 		return cleaned;
 	}
 
 	public String toString()
 	{
-		return sentence + " - letter to remove " + lookFor;
+		return sentence + " - letter to remove " + lookFor + "\n" + removeLetters();
 	}
 }
