@@ -40,7 +40,7 @@ public class RockPaperScissors
 		String winner="";
 		if (playChoice.equals(compChoice)) {
 			winner = "Draw";
-		} if( (playChoice.equals("R") && compChoice.equals("P") ) || (playChoice.equals("P") && compChoice.equals("S")) || (playChoice.equals("S") && compChoice.equals("R") ) ) {
+		} else if( (playChoice.equals("R") && compChoice.equals("P") ) || (playChoice.equals("P") && compChoice.equals("S")) || (playChoice.equals("S") && compChoice.equals("R") ) ) {
 			winner = "Computer";
 		} else {
 			winner = "Player";
@@ -54,11 +54,11 @@ public class RockPaperScissors
 		String output="";
 		if (determineWinner().equals("Draw")) {
 			output = "!Draw Game!";
-		} if (determineWinner().equals("Player")) {
+		} else if (determineWinner().equals("Player")) {
 			output = "!Player wins ";
 			if (playChoice.equals("R")) {
 				output += "<<Rock Breaks Scissors>>!";
-			} if (playChoice.equals("P")) {
+			} else if (playChoice.equals("P")) {
 				output += "<<Paper Covers Rock>>!";
 			} else {
 				output += "<<Scissors Cuts Paper>>!";
@@ -68,7 +68,7 @@ public class RockPaperScissors
 			output = "!Computer wins ";
 			if (compChoice.equals("R")) {
 				output += "<<Rock Breaks Scissors>>!";
-			} if (compChoice.equals("P")) {
+			} else if (compChoice.equals("P")) {
 				output += "<<Paper Covers Rock>>!";
 			} else {
 				output += "<<Scissors Cuts Paper>>!";
