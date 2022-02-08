@@ -25,20 +25,38 @@ public class Triples
 	
 	private int greatestCommonFactor(int a, int b, int c)
 	{
-		int max = 0;
+		int gcf = 0;
+		int max = a;
+		if (b > max) {
+			max = b;
+		} if (c > max) {
+			max = c;
+		}
+		
+		for (int i = 0; i < max; i++) {
+			if ( ((double) a % i == 0) && ((double) b % i == 0) && ((double) c % i == 0)) {
+				gcf = i;
+			}
+		}
 
 
 
-		return 1;
+		return gcf;
 	}
 
 	public String toString()
 	{
 		String output="";
-
-
-
-
+		
+		for (int a = 1; a<number; a++) {
+			for (int b = 1; b<number; b++) {
+				for (int c = 1; c < number; c++) {
+					if ((a*a + b*b == c*c) && (greatestCommonFactor(a, b, c) <= 1) && ((a%2 != 0 && b%2 == 0) || (a%2 == 0 && b%2 != 0))) {
+						output += a + " " + b + " " + c + "\n";
+					}
+				}
+			}
+		}
 
 
 		return output+"\n";
