@@ -61,6 +61,9 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		if (values.length % 2 == 0) {
+			
+		}
 	}
 
 	/**
