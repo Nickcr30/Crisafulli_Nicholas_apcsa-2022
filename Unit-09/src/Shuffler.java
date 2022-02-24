@@ -7,12 +7,12 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 6;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int VALUE_COUNT = 32;
 
 	/**
 	 * Tests shuffling methods.
@@ -61,9 +61,39 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		// initializing the shuffled deck (placeholder deck)
+		int[] shuffled = new int[values.length];
+		int index = 0;
+		
+		// Check for odd or even, then interleave the halves of the deck
 		if (values.length % 2 == 0) {
-			
+			for (int i=0; i < (values.length/2); i++) {
+				shuffled[index] = values[i];
+				index += 2;
+			}
+			index = 1;
+			for (int j = (values.length/2);j<values.length; j++) {
+				shuffled[index] = values [j];
+				index += 2;
+			}
+		} else {
+			for (int i=0; i < ((values.length+1)/2); i++) {
+				shuffled[index] = values[i];
+				index += 2;
+			}
+			index = 1;
+			for (int j = ((values.length+1)/2);j<values.length; j++) {
+				shuffled[index] = values [j];
+				index += 2;
+			}
 		}
+		
+		// converting the original deck to the shuffled deck (copying the shuffled placeholder deck
+		// to the original deck)
+		for (int b =0; b<values.length; b++) {
+			values[b]=shuffled[b];
+		}
+		
 	}
 
 	/**
@@ -79,5 +109,13 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int random = 0;
+		int iph = 0;
+		for (int i = values.length-1; i>0; i--) {
+			random = (int) (Math.random()*i);
+			iph = values[i];
+			values[i] = values[random];
+			values[random] = iph;
+		}
 	}
 }
