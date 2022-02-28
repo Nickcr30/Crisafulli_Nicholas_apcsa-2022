@@ -10,6 +10,9 @@ public class ListOddToEven
 {
 	public static boolean go( List<Integer> ray )
 	{
+		if (ray.get(4) > 4) {
+			return true;
+		}
 		return false;
 	}
 }

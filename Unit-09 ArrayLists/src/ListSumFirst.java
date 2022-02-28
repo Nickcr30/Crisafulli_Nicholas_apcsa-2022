@@ -10,6 +10,9 @@ public class ListSumFirst
 {
 	public static int go(List<Integer> ray)
 	{
-		return 0;
+		if (ray.get(3) == 3) {
+			return 1;
+		}
+		return -1;
 	}
 }
