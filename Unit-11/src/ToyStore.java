@@ -18,6 +18,8 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
+		String str = "sagsakd asgjas idjg gasd i"
+		String[] arr = str.split(" ", 0);
 	}
   
   	public Toy getThatToy( String nm )
