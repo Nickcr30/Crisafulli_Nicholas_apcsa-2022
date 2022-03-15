@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
  */
-public class ElevensBoard {
+public class ElevensBoard extends Board{
 
 	/**
 	 * The size (number of cards) on the board.
@@ -50,6 +50,7 @@ public class ElevensBoard {
 	 * Creates a new <code>ElevensBoard</code> instance.
 	 */
 	public ElevensBoard() {
+		super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
 		cards = new Card[BOARD_SIZE];
 		deck = new Deck(RANKS, SUITS, POINT_VALUES);
 		if (I_AM_DEBUGGING) {
@@ -185,7 +186,13 @@ public class ElevensBoard {
 	 */
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		
+		 if (selectedCards.size() == 2) {
+	            return containsPairSum11(selectedCards);
+	        }
+	        else if (selectedCards.size() == 3) {
+	            return containsJQK(selectedCards);
+	        }
+	        return false;
 	}
 
 	/**
@@ -198,6 +205,11 @@ public class ElevensBoard {
 	 */
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		List<Integer> indexes = cardIndexes();
+        if (!containsPairSum11(indexes)) {
+            return containsJQK(indexes);
+        }
+        return true;
 	}
 
 
@@ -220,6 +232,18 @@ public class ElevensBoard {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if (selectedCards.size() < 2) {
+            return false;
+        }
+		
+        for (int i = 0; i < selectedCards.size() - 1; i++) {
+            for (int j = i + 1; j < selectedCards.size(); j++) {
+                if (cardAt(selectedCards.get(i)).pointValue() + cardAt(selectedCards.get(j)).pointValue() == 11) {
+                    return true;
+                }
+            }
+        }
+        return false;
 	}
 
 	/**
@@ -232,5 +256,25 @@ public class ElevensBoard {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-	}
+		boolean hasJack = false;
+        boolean hasQueen = false;
+        boolean hasKing = false;
+        if (selectedCards.size() < 3) {
+            return false;
+        }
+        
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (cardAt(selectedCards.get(i)).rank() == "jack") {
+                hasJack = true;
+            }
+            else if (cardAt(selectedCards.get(i)).rank() == "queen") {
+                hasQueen = true;
+            }
+            else if (cardAt(selectedCards.get(i)).rank() == "king") {
+                hasKing = true;
+            }
+        }
+        return (hasJack && hasQueen && hasKing);
+    }
 }
+
