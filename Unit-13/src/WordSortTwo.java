@@ -21,6 +21,6 @@ public class WordSortTwo
 	public String toString()
 	{
 		String output="";
-		return output+"\n\n";
+		return output+"\n\n\n";
 	}
 }
