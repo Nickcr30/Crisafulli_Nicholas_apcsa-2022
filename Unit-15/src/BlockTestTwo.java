@@ -16,10 +16,10 @@ public class BlockTestTwo extends Canvas
 	public void paint(Graphics window)
 	{
 		Block one = new Block();
-		one.draw(window);
+		one.draw(window, Color.BLACK);
 
 		Block two = new Block(50,50,30,30);
-		two.draw(window);
+		two.draw(window, Color.pink);
 
 		Block three = new Block(350,350,15,15,Color.RED);
 		three.draw(window);
