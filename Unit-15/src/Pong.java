@@ -25,7 +25,11 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-
+		ball = new Ball(Color.black);
+		  
+		leftPaddle = new Paddle(10, 0, 10, 200, Color.BLACK, 6);
+		  
+		rightPaddle = new Paddle(780, 0, 10, 200,Color.BLACK, 6);
 
 
 
@@ -72,23 +76,55 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		
 		//see if the ball hits the top or bottom wall 
-
+		 if((ball.getY()<0 || ball.getY()>570))
+		    {
+		      ball.setYSpeed(-ball.getYSpeed());
+		    }
 
 
 
 		//see if the ball hits the left paddle
-		
+		 if ((ball.getX() <= leftPaddle.getX()) && //check if paddle is within bounds of x
+					((leftPaddle.getY() <= ball.getY()) && (ball.getY() <= leftPaddle.getY() + leftPaddle.getHeight()) //check if paddle is within bounds of Y
+					))
+			    {
+			    	ball.setXSpeed(-ball.getXSpeed());
+			    	//ball.setYSpeed((int)(-ball.getYSpeed() /*+ 0.1*(((Math.abs(leftPaddle.getY() + leftPaddle.getHeight()))/2) - (ball.getY()))*/));
+			    	// + (int)((double)leftPaddle.getSpeed() * (1.5*(double)Math.random()-0.5));
+			    }
 		
 		
 		//see if the ball hits the right paddle
-		
+		 if ((ball.getX() >= rightPaddle.getX()) && //check if paddle is within bounds of x
+		    		((rightPaddle.getY() <= ball.getY()) && (ball.getY() <= rightPaddle.getY() + rightPaddle.getHeight()) //check if paddle is within bounds of Y
+		    		))
+		        {
+		        	ball.setXSpeed(-ball.getXSpeed());
+		        	//ball.setYSpeed((int)(-ball.getYSpeed() /*+ 0.1*(((Math.abs(leftPaddle.getY() + leftPaddle.getHeight()))/2) - (ball.getY()))*/));
+		        	// + (int)((double)leftPaddle.getSpeed() * (1.5*(double)Math.random()-0.5));
+		        }
 		
 		
 
 
 		//see if the paddles need to be moved
-
-
+		 if(keys[0] == true)
+		    {
+		      leftPaddle.moveUpAndDraw(window);
+		    } else
+		    if(keys[1] == true)
+		    {
+		      leftPaddle.moveDownAndDraw(window);
+		    }
+		    
+		    if(keys[2] == true)
+		    {
+		      rightPaddle.moveUpAndDraw(window);
+		    } else
+		    if(keys[3] == true)
+		    {
+		      rightPaddle.moveDownAndDraw(window);
+		    }
 
 
 
