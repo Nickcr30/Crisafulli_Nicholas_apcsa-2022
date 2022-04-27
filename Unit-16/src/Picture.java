@@ -218,12 +218,24 @@ public class Picture extends SimplePicture
   }
   
   
+  public void keepOnlyBlue() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel pixel = null;
+	  for (int r = 0 ; r < pixels.length; r++) {
+		  for (int c = 0; c < pixels[0].length; c++) {
+			  pixel = pixels[r][c];
+			  pixel.setRed(0);
+			  pixel.setGreen(0);
+		  }
+	  }
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
