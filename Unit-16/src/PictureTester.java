@@ -20,7 +20,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("H:\\\\APCSA\\\\Crisafulli_Nicholas_apcsa-2022\\\\Unit-16\\\\src\\\\images\\\\caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -29,16 +29,24 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("H:\\\\APCSA\\\\Crisafulli_Nicholas_apcsa-2022\\\\Unit-16\\\\src\\\\images\\\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
+    temple.explore();
+  }
+  
+  public static void testMirrorArms()
+  {
+    Picture temple = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\koala.jpg");
+    temple.explore();
+    temple.mirrorArms();
     temple.explore();
   }
   
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -51,10 +59,39 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\swan.jpg");
+    swan.edgeDetection2(10);
+    swan.explore();
+  }
+  
   public static void testKeepOnlyBlue() {
 	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
 	    beach.explore();
 	    beach.keepOnlyBlue();
+	    beach.explore();
+  }
+  
+  
+  public static void testNegate() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	    beach.explore();
+	    beach.negate();
+	    beach.explore();
+  }
+  
+  public static void testGrayscale() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	    beach.explore();
+	    beach.grayscale();
+	    beach.explore();
+  }
+  
+  public static void testFixUnderwater() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	    beach.explore();
+	    beach.fixUnderwater();
 	    beach.explore();
   }
   
@@ -66,7 +103,7 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-    testKeepOnlyBlue();
+    //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
