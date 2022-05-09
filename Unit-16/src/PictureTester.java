@@ -37,7 +37,7 @@ public class PictureTester
   
   public static void testMirrorArms()
   {
-    Picture temple = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\koala.jpg");
+    Picture temple = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\snowman.jpg");
     temple.explore();
     temple.mirrorArms();
     temple.explore();
@@ -89,11 +89,62 @@ public class PictureTester
   }
   
   public static void testFixUnderwater() {
-	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\water.jpg");
 	    beach.explore();
 	    beach.fixUnderwater();
 	    beach.explore();
   }
+  
+  public static void testMirrorDiagonal() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	    beach.explore();
+	    beach.mirrorDiagonal();
+	    beach.explore();
+  }
+  
+  public static void testMirrorHorizontal() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+	    beach.explore();
+	    beach.mirrorHorizontal();
+	    beach.explore();
+  }
+  
+  public static void testmirrorVerticalRightToLeft() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\redMotorcycle.jpg");
+	    beach.explore();
+	    beach.mirrorVerticalRightToLeft();
+	    beach.explore();
+  }
+  
+  public static void testmirrorHorizontalBotToTop() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\redMotorcycle.jpg");
+	    beach.explore();
+	    beach.mirrorHorizontalBotToTop();
+	    beach.explore();
+  }
+  
+  public static void testMirrorGull() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\seagull.jpg");
+	    beach.explore();
+	    beach.mirrorGull();
+	    beach.explore();
+  }
+  
+  public static void testCopy() {
+	  Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\seagull.jpg");
+	  Picture cat = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+	    beach.explore();
+	    beach.copy(cat, 90, 120, 215, 350, 330, 410);
+	    beach.explore();
+  }
+  
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\seagull.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
+  
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -110,14 +161,18 @@ public class PictureTester
     //testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
+	//testMirrorHorizontal();
+	//testmirrorVerticalRightToLeft();
+	//testmirrorHorizontalBotToTop();
     //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
+	//testMyCollage();
     //testEdgeDetection();
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);

@@ -172,12 +172,13 @@ public class Picture extends SimplePicture
       }
     }   
   }
-
+  
+ 
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("H:\\\\APCSA\\\\Crisafulli_Nicholas_apcsa-2022\\\\Unit-16\\\\src\\\\images\\\\flower1.jpg");
+    Picture flower2 = new Picture("H:\\\\APCSA\\\\Crisafulli_Nicholas_apcsa-2022\\\\Unit-16\\\\src\\\\images\\\\flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -187,7 +188,7 @@ public class Picture extends SimplePicture
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("collage.jpg");
+    this.write("H:\\\\APCSA\\\\Crisafulli_Nicholas_apcsa-2022\\\\Unit-16\\\\src\\\\images\\\\collage.jpg");
   }
   
   
@@ -387,6 +388,9 @@ public class Picture extends SimplePicture
   }
   }
   
+ 
+  
+  
   public void mirrorGull()
   {
   int mirrorPoint = 350;
@@ -435,6 +439,29 @@ public class Picture extends SimplePicture
 			  }
 			  }
 		  
+  
+  
+  public void myCollage()
+  {
+    Picture kitten2 = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+    Picture kitten2Mirror = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+    kitten2Mirror.mirrorHorizontalBotToTop();
+    Picture kitten2negate = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+    kitten2negate.negate();
+    Picture kitten2grayscale = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+    kitten2grayscale.grayscale();
+    Picture kitten2Diag = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\kitten2.jpg");
+    kitten2Diag.mirrorDiagonal();
+    this.copy(kitten2, 90, 120, 215, 350, 330, 410);
+    this.copy(kitten2Mirror, 90, 120, 215, 350, 50, 50);
+    this.copy(kitten2negate, 90, 120, 215, 350, 50, 410);
+    this.copy(kitten2Diag, 90, 120, 215, 350, 330, 50);
+    this.write("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\collage.jpg");
+  }
+  
+  
+  
+  
   public void edgeDetection2(int edgeDist)
   {
   Picture copy = new Picture(this);
@@ -479,6 +506,8 @@ public class Picture extends SimplePicture
   }
   }
   }
+  
+
   
   
   // now compare a pixel with the one below it
