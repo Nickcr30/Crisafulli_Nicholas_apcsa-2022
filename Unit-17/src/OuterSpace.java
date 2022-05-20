@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public class OuterSpace extends Canvas implements KeyListener, Runnable
 {
 	private Ship ship;
-	private Alien alienOne;
-	private Alien alienTwo;
+	//private Alien alienOne;
+	//private Alien alienTwo;
+	
 
-	/* uncomment once you are ready for this part
-	 *
+	
    private AlienHorde horde;
 	private Bullets shots;
-	*/
+
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -37,7 +37,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
-		ship = new Ship(350,400,100,100,5);
+		ship = new Ship(350,400,50,50,10);
+		shots = new Bullets();
+		horde = new AlienHorde(10);
+		
 		;
 
 		this.addKeyListener(this);
@@ -80,11 +83,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[2] == true)
 		{
-			ship.move("DOWN");
+			ship.move("UP");
 		}
 		if(keys[3] == true)
 		{
-			ship.move("UP");
+			ship.move("DOWN");
+		}
+		if (keys[4] == true) {
 		}
 
 		//add code to move Ship, Alien, etc.
@@ -107,7 +112,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		
 		
-		ship.draw(graphToBack);
+		 ship.draw(graphToBack);
+	        
 		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
