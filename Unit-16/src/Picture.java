@@ -526,7 +526,44 @@ public class Picture extends SimplePicture
 		  }
 	  }
 	  
-	  // goes through the message picture and detects the black pixels. If the 
+	  // goes through the message picture and detects the black pixels. If the pixels
+	  // are black, the corresponding pixels in the main picture have their blue pixels
+	  // incremented by 1
+	  for (int r = 0; r < messagePix.length; r++) {
+		  for (int c = 0; c < messagePix[0].length; c++) {
+			  currPixel = currPixels[r][c];
+			  messagePixel = messagePix[r][c];
+			  if (messagePixel.getRed() + messagePixel.getBlue() + messagePixel.getGreen() < 150) {
+				  currPixel.setBlue(currPixel.getBlue() + 1);
+			  }
+		  }
+	  }
+  }
+  
+  public Picture decode1() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel pixel = null;
+	  
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Picture messagePicture = new Picture(height, width);
+	  Pixel messagePixel = null;
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  
+	  for (int r = 0; r < pixels.length; r++) {
+		  for (int c = 0; c < pixels[0].length; c++) {
+			  pixel = pixels[r][c];
+			  messagePixel = messagePixels[r][c];
+			  if (pixel.getBlue() % 10 == 1) {
+				  messagePixel.setRed(0);
+				  messagePixel.setBlue(0);
+				  messagePixel.setGreen(0);
+			  }
+		  }
+	  }
+	  
+	  
+	  return messagePicture;
   }
   
   
@@ -602,6 +639,8 @@ public class Picture extends SimplePicture
     beach.encode1(message);
     beach.explore();
     message.explore();
+    Picture mes = beach.decode1();
+    mes.explore();
     
   }
   
