@@ -507,8 +507,89 @@ public class Picture extends SimplePicture
 	  }
   }
   
-
+  public void encode1(Picture messagePict) {
+	  Pixel[][] messagePix = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  
+	  // loops through all pixels in the start image and rounds the blue value to
+	  // the nearest multiple of 10
+	  for (int i = 0; i < currPixels.length; i++) {
+		  for (int j = 0; j < currPixels[0].length; j++) {
+			  currPixel = currPixels[i][j];
+			  if (currPixel.getBlue() % 10 < 5) {
+				  currPixel.setBlue(currPixel.getBlue()-(currPixel.getBlue() % 10));
+			  } else if (currPixel.getBlue() % 10 >= 5) {
+				  currPixel.setBlue(currPixel.getBlue()+(10 -(currPixel.getBlue() % 10)));
+			  }
+		  }
+	  }
+	  
+	  // goes through the message picture and detects the black pixels. If the 
+  }
   
+  
+  public void encode(Picture messagePict)
+  {
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  // if the current pixel red is odd make it even
+			  currPixel = currPixels[row][col];
+			  if (currPixel.getRed() % 2 == 1)
+				  currPixel.setRed(currPixel.getRed() - 1);
+			  messagePixel = messagePixels[row][col];
+			  if (messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  currPixel.setRed(currPixel.getRed() + 1);
+				  count++;
+			  }
+		  }
+  }
+  System.out.println(count);
+  }
+  
+  
+  
+  /**
+  * Method to decode a message hidden in the
+  * red value of the current picture
+  * @return the picture with the hidden message
+  */
+  public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() % 2 == 1)
+			  {
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+	  return messagePicture;
+  }
   
   // now compare a pixel with the one below it
   /* Main method for testing - each class in Java can have a main 
@@ -517,9 +598,11 @@ public class Picture extends SimplePicture
   public static void main(String[] args) 
   {
     Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
+    Picture message = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\msg.jpg");
+    beach.encode1(message);
     beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+    message.explore();
+    
   }
   
 } // this } is the end of class Picture, put all new methods before this
