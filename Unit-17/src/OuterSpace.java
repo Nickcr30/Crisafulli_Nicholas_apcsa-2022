@@ -37,10 +37,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
-		ship = new Ship(350,400,50,50,10);
+		ship = new Ship(350,400,50,50,5);
 		shots = new Bullets();
 		horde = new AlienHorde(10);
-		
+		for (int i = 0; i < 10; i++) {
+			horde.add(new Alien(50*i, 50, 2));
+		}
 		;
 
 		this.addKeyListener(this);
@@ -113,7 +115,8 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		
 		 ship.draw(graphToBack);
-	        
+	     horde.drawEmAll(graphToBack);
+	     horde.moveEmAll();
 		
 		twoDGraph.drawImage(back, null, 0, 0);
 	}

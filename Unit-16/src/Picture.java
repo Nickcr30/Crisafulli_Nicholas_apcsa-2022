@@ -635,10 +635,11 @@ public class Picture extends SimplePicture
   public static void main(String[] args) 
   {
     Picture beach = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\beach.jpg");
-    Picture message = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\msg.jpg");
-    beach.encode1(message);
+    Picture message1 = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\msg.jpg");
+    Picture message2 = new Picture("H:\\APCSA\\Crisafulli_Nicholas_apcsa-2022\\Unit-16\\src\\images\\apple_icon.jpg");
     beach.explore();
-    message.explore();
+    beach.encode1(message2);
+    beach.explore();
     Picture mes = beach.decode1();
     mes.explore();
     

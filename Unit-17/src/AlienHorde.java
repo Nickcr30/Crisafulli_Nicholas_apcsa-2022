@@ -36,14 +36,19 @@ public class AlienHorde
 	public void moveEmAll()
 	{
 		for (Alien b : aliens) {
-            if (b.getX() == 740) {
+                b.move("RIGHT"); 
+        }
+		for (Alien b : aliens) {
+            if (b.getX() >= 740) {
                 b.move("LEFT");
             }
-            if (b.getX() == 0) {
+            if (b.getX() <= 0) {
                 b.move("RIGHT");
             }
         }
 	}
+	
+
 
 	public void removeDeadOnes(List<Ammo> shots)
 	{
